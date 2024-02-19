@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # CSV file to read
-csvFile = "C:\\Users\\mateo\\Documents\\GitHub\\Biomechanics2024-1\\CinematicaAngular\\Datos_cinematicos.csv"
+csvFile = r"C:\Users\mateo\Documents\GitHub\Biomechanics2024-1\CinematicaAngular_Tarea1\Datos_cinematicos.csv"
 # Read the CSV file and store the data in arrays
 Frm, Cix, Ciy, TMx, TMy, Rodx, Rody, Tobx, Toby, Talx, Taly, Dedx, Dedy = app.csv_to_arrays(csv_file=csvFile)
 
