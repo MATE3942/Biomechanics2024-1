@@ -44,8 +44,8 @@ plt.title("Aceleración Lineal del Tobillo")
 plt.xlabel("Tiempo (s)")
 plt.ylabel("Aceleración (m/s^2)")
 plt.show()
-print(f"La velocidad máxima del tobillo es {max(VTAnkle)} m/s y ocurre en el frame {VTAnkle.index(max(VTAnkle)) + 1}.")
-print(f"La aceleración máxima del tobillo es {max(ATAnkle)} m/s^2 y ocurre en el frame {ATAnkle.index(max(ATAnkle)) + 2}.")
+print(f"La velocidad máxima del tobillo es {max(VTAnkle)} m/s y ocurre en el frame {VTAnkle.index(max(VTAnkle)) + 1}. El ángulo absoluto en ese momento es {ThetaAE[VTAnkle.index(max(VTAnkle)) + 1]} °")
+print(f"La aceleración máxima del tobillo es {max(ATAnkle)} m/s^2 y ocurre en el frame {ATAnkle.index(max(ATAnkle)) + 2}. El ángulo absoluto en ese momento es {ThetaAE[ATAnkle.index(max(ATAnkle)) + 2]} °")
 
 ## Knee: Relative Angles
 # Calculate the absolute angles of the knee
@@ -64,4 +64,8 @@ plt.title("Ángulo Relativo de la Rodilla")
 plt.xlabel("Tiempo (s)")
 plt.ylabel("Ángulo (°)")
 plt.show()
-print(f"El ángulo máximo de la rodilla es {max(ThetaRKnee)}° y ocurre en el frame {ThetaRKnee.index(max(ThetaRKnee))}.")
+print(f"\nEl ángulo máximo de la rodilla es {max(ThetaRKnee)} ° y ocurre en el frame {ThetaRKnee.index(max(ThetaRKnee))}.")
+
+## Feet: Angular Velocity and Acceleration
+print(f"\nLa velocidad angular máxima del tobillo es {max(AngVelAnkle)} °/s y ocurre en el frame {AngVelAnkle.index(max(AngVelAnkle)) + 1}.")
+print(f"La aceleración angular máxima del tobillo es {max(AngAccelAnkle)} °/s^2 y ocurre en el frame {AngAccelAnkle.index(max(AngAccelAnkle)) + 2}.")
