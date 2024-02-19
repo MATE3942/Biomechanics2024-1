@@ -46,3 +46,22 @@ plt.ylabel("Aceleración (m/s^2)")
 plt.show()
 print(f"La velocidad máxima del tobillo es {max(VTAnkle)} m/s y ocurre en el frame {VTAnkle.index(max(VTAnkle)) + 1}.")
 print(f"La aceleración máxima del tobillo es {max(ATAnkle)} m/s^2 y ocurre en el frame {ATAnkle.index(max(ATAnkle)) + 2}.")
+
+## Knee: Relative Angles
+# Calculate the absolute angles of the knee
+ThetaAM = []
+ThetaAP = []
+for i in range(len(arrays[0])):
+    ThetaAM.append(func.calculate_absoluteAngles(Prox_X=arrays[5][i], Prox_Y=arrays[6][i], Dist_X=arrays[7][i], Dist_Y=arrays[8][i]))
+    ThetaAP.append(func.calculate_absoluteAngles(Prox_X=arrays[7][i], Prox_Y=arrays[8][i], Dist_X=arrays[9][i], Dist_Y=arrays[10][i]))
+# Calculate the relative angles of the knee
+ThetaRKnee = []
+for i in range(len(ThetaAM)):
+    ThetaRKnee.append(ThetaAM[i] - ThetaAP[i])
+# Graph the relative angles of the knee
+plt.plot(time, ThetaRKnee, label="Relative angle")
+plt.title("Ángulo Relativo de la Rodilla")
+plt.xlabel("Tiempo (s)")
+plt.ylabel("Ángulo (°)")
+plt.show()
+print(f"El ángulo máximo de la rodilla es {max(ThetaRKnee)}° y ocurre en el frame {ThetaRKnee.index(max(ThetaRKnee))}.")
