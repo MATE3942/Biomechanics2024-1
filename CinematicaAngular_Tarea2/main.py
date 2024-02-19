@@ -35,6 +35,12 @@ for i in range(len(AngAccelAnkle)):
     ATAnkle.append(AngAccelAnkle[i] * func.point_distance(arrays[13][i], arrays[14][i], arrays[15][i], arrays[16][i]))
 # Graph the lineal velocity and acceleration of the ankle
 plt.plot(time[1:-1], VTAnkle, label="Lineal velocity")
+plt.title("Velocidad Lineal del Tobillo")
+plt.xlabel("Tiempo (s)")
+plt.ylabel("Velocidad (m/s)")
 plt.show()
 plt.plot(time[2:-2], ATAnkle, label="Lineal acceleration")
+plt.title("Aceleración Lineal del Tobillo")
+plt.xlabel("Tiempo (s)")
+plt.ylabel("Aceleración (m/s^2)")
 plt.show()
