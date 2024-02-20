@@ -34,13 +34,13 @@ ATAnkle = []
 for i in range(len(AngAccelAnkle)):
     ATAnkle.append(AngAccelAnkle[i] * func.point_distance(arrays[13][i], arrays[14][i], arrays[15][i], arrays[16][i]))
 # Graph the lineal velocity and acceleration of the ankle
-print(f"La velocidad máxima del tobillo es {max(VTAnkle)} m/s y ocurre en el frame {VTAnkle.index(max(VTAnkle)) + 1}. El ángulo absoluto en ese momento es {ThetaAE[VTAnkle.index(max(VTAnkle)) + 1]} °")
-print(f"La aceleración máxima del tobillo es {max(ATAnkle)} m/s^2 y ocurre en el frame {ATAnkle.index(max(ATAnkle)) + 2}. El ángulo absoluto en ese momento es {ThetaAE[ATAnkle.index(max(ATAnkle)) + 2]} °")
+print(f"La velocidad máxima del tobillo es {max(VTAnkle, key=abs)} m/s y ocurre en el frame {VTAnkle.index(max(VTAnkle, key=abs)) + 1}. El ángulo absoluto en ese momento es {ThetaAE[VTAnkle.index(max(VTAnkle, key=abs)) + 1]} °")
 plt.plot(time[1:-1], VTAnkle, label="Lineal velocity")
 plt.title("Velocidad Lineal del Tobillo")
 plt.xlabel("Tiempo (s)")
 plt.ylabel("Velocidad (m/s)")
 plt.show()
+print(f"La aceleración máxima del tobillo es {max(ATAnkle, key=abs)} m/s^2 y ocurre en el frame {ATAnkle.index(max(ATAnkle, key=abs)) + 2}. El ángulo absoluto en ese momento es {ThetaAE[ATAnkle.index(max(ATAnkle, key=abs)) + 2]} °")
 plt.plot(time[2:-2], ATAnkle, label="Lineal acceleration")
 plt.title("Aceleración Lineal del Tobillo")
 plt.xlabel("Tiempo (s)")
@@ -59,7 +59,7 @@ ThetaRKnee = []
 for i in range(len(ThetaAM)):
     ThetaRKnee.append(ThetaAM[i] - ThetaAP[i])
 # Graph the relative angles of the knee
-print(f"\nEl ángulo máximo de la rodilla es {max(ThetaRKnee)} ° y ocurre en el frame {ThetaRKnee.index(max(ThetaRKnee))}.")
+print(f"\nEl ángulo máximo de la rodilla es {max(ThetaRKnee, key=abs)} ° y ocurre en el frame {ThetaRKnee.index(max(ThetaRKnee, key=abs))}.")
 plt.plot(time, ThetaRKnee, label="Relative angle")
 plt.title("Ángulo Relativo de la Rodilla")
 plt.xlabel("Tiempo (s)")
@@ -67,5 +67,15 @@ plt.ylabel("Ángulo (°)")
 plt.show()
 
 ## Feet: Angular Velocity and Acceleration
-print(f"\nLa velocidad angular máxima del tobillo es {max(AngVelAnkle)} °/s y ocurre en el frame {AngVelAnkle.index(max(AngVelAnkle)) + 1}.")
-print(f"La aceleración angular máxima del tobillo es {max(AngAccelAnkle)} °/s^2 y ocurre en el frame {AngAccelAnkle.index(max(AngAccelAnkle)) + 2}.")
+print(f"\nLa velocidad angular máxima del tobillo es {max(AngVelAnkle, key=abs)} °/s y ocurre en el frame {AngVelAnkle.index(max(AngVelAnkle, key=abs)) + 1}.")
+plt.plot(time[1:-1], AngVelAnkle, label="Angular velocity")
+plt.title("Velocidad Angular del Tobillo")
+plt.xlabel("Tiempo (s)")
+plt.ylabel("Velocidad (°/s)")
+plt.show()
+print(f"La aceleración angular máxima del tobillo es {max(AngAccelAnkle, key=abs)} °/s^2 y ocurre en el frame {AngAccelAnkle.index(max(AngAccelAnkle, key=abs)) + 2}.")
+plt.plot(time[2:-2], AngAccelAnkle, label="Angular acceleration")
+plt.title("Aceleración Angular del Tobillo")
+plt.xlabel("Tiempo (s)")
+plt.ylabel("Aceleración (°/s^2)")
+plt.show()
