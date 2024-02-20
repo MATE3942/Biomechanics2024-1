@@ -79,3 +79,8 @@ plt.title("Aceleración Angular del Tobillo")
 plt.xlabel("Tiempo (s)")
 plt.ylabel("Aceleración (°/s^2)")
 plt.show()
+
+## Toe: Highest Point after landing
+# Start searching for the highest value in the second half of the array (highest point after jumping)
+highest_after_lowest = max(arrays[16][(len(arrays[16]) // 2):])
+print(f"\nEl valor más alto alcanzado luego de aterrizar es: {highest_after_lowest / 1000} m y sucede en el frame {arrays[16].index(highest_after_lowest)}.")
