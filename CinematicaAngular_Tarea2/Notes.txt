@@ -7,3 +7,15 @@ La velocidad angular máxima del tobillo es -0.4302264072788826 °/s y ocurre en
 La aceleración angular máxima del tobillo es 8.2590726852275 °/s^2 y ocurre en el frame 223.
 
 El valor más alto alcanzado luego de aterrizar es 0.289701477 m y sucede en el frame 228.
+
+Fases del movimiento:
+1	Impulso de salto desde el banco - Despegue dedo del banco
+2	Despegue dedo del banco - Caída
+3	Caída - Contacto dedo con suelo
+4	Contacto dedo con suelo – Impulso hacia arriba
+5	Impulso hacia arriba – Despegue dedo del suelo
+6	Despegue dedo del suelo – Ascenso durante salto
+7	Ascenso durante salto – Altura máxima salto
+8	Altura máxima salto – Descenso durante salto
+9	Descenso durante salto – Contacto dedo con suelo
+10	Contacto dedo con suelo – Contacto talón con suelo
