@@ -50,12 +50,12 @@ def calculate_absoluteAngles(Prox_X, Prox_Y, Dist_X, Dist_Y):
         angle += 360
     return angle
 
-def calculate_angularVelocityAcceleration(RelativeAngleVelocity, time):
-    # Calculate the angular velocity of a joint
-    # relativeAngles: list of relative angles in degrees
+def calculate_difMethod(data, time):
+    # Calculate the derivative of a function using the difference method
+    # data: list of data values
     # time: list of time values in seconds
-    # Returns the angular velocity in degrees per second
-    angularVelocity = []
-    for i in range(1, len(RelativeAngleVelocity) - 1):
-        angularVelocity.append((RelativeAngleVelocity[i + 1] - RelativeAngleVelocity[i - 1]) / (time[i + 1] - time[i - 1]))
-    return angularVelocity
+    # Returns the derivative of the function
+    derivative = []
+    for i in range(1, len(data) - 1):
+        derivative.append((data[i + 1] - data[i - 1]) / (time[i + 1] - time[i - 1]))
+    return derivative
