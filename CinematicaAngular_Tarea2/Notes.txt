@@ -3,8 +3,8 @@ La aceleración máxima del tobillo es 30.459591505308232 m/s^2 y ocurre en el f
 
 El ángulo máximo de la rodilla es 71.58980177824671 ° y ocurre en el frame 190.
 
-La velocidad angular máxima del tobillo es -0.4302264072788826 °/s y ocurre en el frame 205.
-La aceleración angular máxima del tobillo es 8.2590726852275 °/s^2 y ocurre en el frame 223.
+La velocidad angular máxima del tobillo es -7.5088673360425995 rad/s y ocurre en el frame 205.
+La aceleración angular máxima del tobillo es 144.14801151874912 rad/s^2 y ocurre en el frame 223.
 
 El valor más alto alcanzado luego de aterrizar es 0.289701477 m y sucede en el frame 228.
 

@@ -98,23 +98,23 @@ AngVelAnkle = func.calculate_difMethod(ThetaAE, time)
 AngAccelAnkle = func.calculate_difMethod(AngVelAnkle, time)
 # Turn the Velocity and Acceleration from mm/s to m/s and mm/s^2 to m/s^2
 for i in range(len(AngVelAnkle)):
-    AngVelAnkle[i] = AngVelAnkle[i] / 1000
+    AngVelAnkle[i] = AngVelAnkle[i] * (func.math.pi / 180)
 for i in range(len(AngAccelAnkle)):
-    AngAccelAnkle[i] = AngAccelAnkle[i] / 1000
-print(f"\nLa velocidad angular máxima del tobillo es {max(AngVelAnkle, key=abs)} °/s y ocurre en el frame {AngVelAnkle.index(max(AngVelAnkle, key=abs)) + 1}.")
+    AngAccelAnkle[i] = AngAccelAnkle[i] * (func.math.pi / 180)
+print(f"\nLa velocidad angular máxima del tobillo es {max(AngVelAnkle, key=abs)} rad/s y ocurre en el frame {AngVelAnkle.index(max(AngVelAnkle, key=abs)) + 1}.")
 for i in range(len(AngVelAnkle) - 1):
     plt.plot(time[i:i+2], AngVelAnkle[i:i+2], color=func.get_color(time[i]))
 plt.title("Velocidad Angular del Tobillo")
 plt.xlabel("Tiempo (s)")
-plt.ylabel("Velocidad (°/s)")
+plt.ylabel("Velocidad (rad/s)")
 plt.show()
 
-print(f"La aceleración angular máxima del tobillo es {max(AngAccelAnkle, key=abs)} °/s^2 y ocurre en el frame {AngAccelAnkle.index(max(AngAccelAnkle, key=abs)) + 2}.")
+print(f"La aceleración angular máxima del tobillo es {max(AngAccelAnkle, key=abs)} rad/s^2 y ocurre en el frame {AngAccelAnkle.index(max(AngAccelAnkle, key=abs)) + 2}.")
 for i in range(len(AngAccelAnkle) - 1):
     plt.plot(time[i:i+2], AngAccelAnkle[i:i+2], color=func.get_color(time[i]))
 plt.title("Aceleración Angular del Tobillo")
 plt.xlabel("Tiempo (s)")
-plt.ylabel("Aceleración (°/s^2)")
+plt.ylabel("Aceleración (rad/s^2)")
 plt.show()
 
 ## Toe: Highest Point after landing
