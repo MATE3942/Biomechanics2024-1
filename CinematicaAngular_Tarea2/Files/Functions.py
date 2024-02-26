@@ -59,3 +59,27 @@ def calculate_difMethod(data, time):
     for i in range(1, len(data) - 1):
         derivative.append((data[i + 1] - data[i - 1]) / (time[i + 1] - time[i - 1]))
     return derivative
+
+def get_color(x):
+    x *= 100
+    # Assign a color based on the x value
+    if x <= 150:          # Impulso de salto desde el banco - Despegue dedo del banco
+        return '#006BA4'
+    elif x <= 165:        # Despegue dedo del banco - Caída
+        return '#FF800E'
+    elif x <= 182:        # Caída - Contacto dedo con suelo
+        return '#ABABAB'
+    elif x <= 192:        # Contacto dedo con suelo – Impulso hacia arriba
+        return '#595959'
+    elif x <= 206:        # Impulso hacia arriba – Despegue dedo del suelo
+        return '#5F9ED1'
+    elif x <= 215:        # Despegue dedo del suelo – Ascenso durante salto
+        return '#C85200'
+    elif x <= 228:        # Ascenso durante salto – Altura máxima salto
+        return '#898989' 
+    elif x <= 246:        # Altura máxima salto – Descenso durante salto
+        return '#A2C8EC'
+    elif x <= 261:        # Descenso durante salto – Contacto dedo con suelo
+        return '#FFBC79'
+    else:                # Contacto dedo con suelo – Contacto talón con suelo
+        return '#CFCFCF'

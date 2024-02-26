@@ -32,25 +32,31 @@ for i in range(len(MagVelAnkle)):
 for i in range(len(MagAccelAnkle)):
     MagAccelAnkle[i] = MagAccelAnkle[i] / 1000
 # Graph the lineal velocity and acceleration of the ankle
-print(f"La magnitud máxima de la velocidad lineal del tobillo es {max(MagVelAnkle, key=abs)} m/s y ocurre en el frame {MagVelAnkle.index(max(MagVelAnkle, key=abs)) + 1}. El ángulo en ese momento es {VelDirectionAnkle[MagVelAnkle.index(max(MagVelAnkle, key=abs)) + 1]} °")
-plt.plot(time[1:-1], MagVelAnkle, label="Lineal velocity magnitude")
+print(f"La magnitud máxima de la velocidad lineal del tobillo es {max(MagVelAnkle, key=abs)} m/s y ocurre en el frame {MagVelAnkle.index(max(MagVelAnkle, key=abs)) + 1}. El ángulo absoluto en ese momento es {VelDirectionAnkle[MagVelAnkle.index(max(MagVelAnkle, key=abs)) + 1]} °")
+for i in range(len(MagVelAnkle) - 1):
+    plt.plot(time[i:i+2], MagVelAnkle[i:i+2], color=func.get_color(time[i]))
 plt.title("Magnitud de la Velocidad Lineal del Tobillo")
 plt.xlabel("Tiempo (s)")
 plt.ylabel("Velocidad (m/s)")
 plt.show()
-plt.plot(time[1:-1], VelDirectionAnkle, label="Lineal velocity direction")
+
+for i in range(len(VelDirectionAnkle) - 1):
+    plt.plot(time[i:i+2], VelDirectionAnkle[i:i+2], color=func.get_color(time[i]))
 plt.title("Dirección de la Velocidad Lineal del Tobillo")
 plt.xlabel("Tiempo (s)")
 plt.ylabel("Ángulo (°)")
 plt.show()
 
 print(f"La aceleración máxima del tobillo es {max(MagAccelAnkle, key=abs)} m/s^2 y ocurre en el frame {MagAccelAnkle.index(max(MagAccelAnkle, key=abs)) + 2}. El ángulo absoluto en ese momento es {AccelDirectionAnkle[MagAccelAnkle.index(max(MagAccelAnkle, key=abs)) + 2]} °")
-plt.plot(time[2:-2], MagAccelAnkle, label="Lineal acceleration magnitude")
+for i in range(len(MagAccelAnkle) - 1):
+    plt.plot(time[i:i+2], MagAccelAnkle[i:i+2], color=func.get_color(time[i]))
 plt.title("Magnitud de la Aceleración Lineal del Tobillo")
 plt.xlabel("Tiempo (s)")
 plt.ylabel("Aceleración (m/s^2)")
 plt.show()
-plt.plot(time[2:-2], AccelDirectionAnkle, label="Lineal acceleration direction")
+
+for i in range(len(AccelDirectionAnkle) - 1):
+    plt.plot(time[i:i+2], AccelDirectionAnkle[i:i+2], color=func.get_color(time[i]))
 plt.title("Dirección de la Aceleración Lineal del Tobillo")
 plt.xlabel("Tiempo (s)")
 plt.ylabel("Ángulo (°)")
@@ -69,7 +75,8 @@ for i in range(len(ThetaAM)):
     ThetaRKnee.append(ThetaAM[i] - ThetaAP[i])
 # Graph the relative angles of the knee
 print(f"\nEl ángulo máximo de la rodilla es {max(ThetaRKnee, key=abs)} ° y ocurre en el frame {ThetaRKnee.index(max(ThetaRKnee, key=abs))}.")
-plt.plot(time, ThetaRKnee, label="Relative angle")
+for i in range(len(ThetaRKnee) - 1):
+    plt.plot(time[i:i+2], ThetaRKnee[i:i+2], color=func.get_color(time[i]))
 plt.title("Ángulo Relativo de la Rodilla")
 plt.xlabel("Tiempo (s)")
 plt.ylabel("Ángulo (°)")
@@ -95,13 +102,16 @@ for i in range(len(AngVelAnkle)):
 for i in range(len(AngAccelAnkle)):
     AngAccelAnkle[i] = AngAccelAnkle[i] / 1000
 print(f"\nLa velocidad angular máxima del tobillo es {max(AngVelAnkle, key=abs)} °/s y ocurre en el frame {AngVelAnkle.index(max(AngVelAnkle, key=abs)) + 1}.")
-plt.plot(time[1:-1], AngVelAnkle, label="Angular velocity")
+for i in range(len(AngVelAnkle) - 1):
+    plt.plot(time[i:i+2], AngVelAnkle[i:i+2], color=func.get_color(time[i]))
 plt.title("Velocidad Angular del Tobillo")
 plt.xlabel("Tiempo (s)")
 plt.ylabel("Velocidad (°/s)")
 plt.show()
+
 print(f"La aceleración angular máxima del tobillo es {max(AngAccelAnkle, key=abs)} °/s^2 y ocurre en el frame {AngAccelAnkle.index(max(AngAccelAnkle, key=abs)) + 2}.")
-plt.plot(time[2:-2], AngAccelAnkle, label="Angular acceleration")
+for i in range(len(AngAccelAnkle) - 1):
+    plt.plot(time[i:i+2], AngAccelAnkle[i:i+2], color=func.get_color(time[i]))
 plt.title("Aceleración Angular del Tobillo")
 plt.xlabel("Tiempo (s)")
 plt.ylabel("Aceleración (°/s^2)")
@@ -109,5 +119,22 @@ plt.show()
 
 ## Toe: Highest Point after landing
 # Start searching for the highest value in the second half of the array (highest point after jumping)
-highest_after_lowest = max(arrays[16][(len(arrays[16]) // 2):])
-print(f"\nEl valor más alto alcanzado luego de aterrizar es: {highest_after_lowest / 1000} m y sucede en el frame {arrays[16].index(highest_after_lowest)}.")
+for i in range(len(arrays[16]) - 1):
+    plt.plot(time[i:i+2], arrays[16][i:i+2], color=func.get_color(time[i]))
+first_segment = plt.plot([], [], color='#006BA4', label='Fase 1')
+second_segment = plt.plot([], [], color='#FF800E', label='Fase 2')
+third_segment = plt.plot([], [], color='#ABABAB', label='Fase 3')
+fourth_segment = plt.plot([], [], color='#595959', label='Fase 4')
+fifth_segment = plt.plot([], [], color='#5F9ED1', label='Fase 5')
+sixth_segment = plt.plot([], [], color='#C85200', label='Fase 6')
+seventh_segment = plt.plot([], [], color='#898989', label='Fase 7')
+eighth_segment = plt.plot([], [], color='#A2C8EC', label='Fase 8')
+ninth_segment = plt.plot([], [], color='#FFBC79', label='Fase 9')
+tenth_segment = plt.plot([], [], color='#CFCFCF', label='Fase 10')
+plt.legend()
+plt.title("Altura del marcador del dedo del pie izquierdo")
+plt.xlabel("Tiempo (s)")
+plt.ylabel("Altura (mm)")
+plt.show()
+highest_after_half = max(arrays[16][(len(arrays[16]) // 2):])
+print(f"\nEl valor más alto alcanzado luego de aterrizar es {highest_after_half / 1000} m y sucede en el frame {arrays[16].index(highest_after_half)}.")
